@@ -10,6 +10,11 @@ interface Project {
 
 const Projects: Project[] = [
     {
+        github_link: "https://github.com/frederikhs/hrgn.dk",
+        name: "www.hrgn.dk",
+        description: "the page you're at right now"
+    },
+    {
         link: "https://pp.hrgn.dk",
         github_link: "https://github.com/frederikhs/planning-poker",
         name: "Planning Poker",
