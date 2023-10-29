@@ -62,7 +62,7 @@ export default function ProjectsPage() {
     return (
         <div className={"space-y-4"}>
             <p>I have picked some projects i want to showcase</p>
-            <ul className="list-none">
+            <ul className="list-none space-y-4">
                 {Projects.map((project, index) => {
                     return (
                         <li key={index} className={"space-x-2"}>

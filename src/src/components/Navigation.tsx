@@ -16,11 +16,13 @@ export default function Navigation() {
     return (
         <nav className="sticky top-0 z-10 bg-neutral-900">
             <div className="flex flex-wrap items-center justify-start space-x-4 p-4">
-                <span>hrgn.dk</span>
+                <NavLink to={"/"} >
+                    <span>hrgn.dk</span>
+                </NavLink>
                 <span>|</span>
                 {Links.map((link, index) => {
                     return (
-                        <NavLink key={index} to={link.to} className={({isActive}) => "flex items-center " + (isActive ? "underline" : "")}>
+                        <NavLink key={index} to={link.to} className={({isActive}) => isActive ? "underline" : ""}>
                             <span className="hover:opacity-75">{link.title}</span>
                         </NavLink>
                     )
