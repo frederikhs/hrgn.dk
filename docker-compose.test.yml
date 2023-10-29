@@ -1,0 +1,7 @@
+services:
+  web:
+    image: hrgn-dk:test
+    build:
+      target: build
+    environment:
+      REACT_APP_VERSION: "test"

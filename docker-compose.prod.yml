@@ -1,0 +1,7 @@
+services:
+  web:
+    image: registry.hrgn.dk/hrgn-dk:${TAG:-prod}
+    build:
+      target: production
+      args:
+        VERSION: ${TAG:-prod}

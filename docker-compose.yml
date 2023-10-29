@@ -1,0 +1,7 @@
+services:
+  web:
+    build:
+      context: .
+    stop_grace_period: 1s
+    ports:
+      - "3000:3000"
