@@ -13,6 +13,7 @@ COPY src .
 ARG VERSION
 ENV REACT_APP_VERSION=$VERSION
 RUN npm run build
+RUN npm run sitemap
 
 FROM nginx:mainline-alpine as production
 COPY server.conf /etc/nginx/conf.d/nginx.conf
