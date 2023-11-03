@@ -2,11 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import {createBrowserRouter, Navigate, RouterProvider} from "react-router-dom";
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import About from "./pages/About";
 import Root from "./Root";
 import ProjectsPage from "./pages/ProjectsPage";
 import SocialPage from "./pages/SocialPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
@@ -29,11 +30,11 @@ const router = createBrowserRouter([
                 path: "/social",
                 element: <SocialPage/>,
             },
+            {
+                path: '*',
+                element: <NotFoundPage/>,
+            }
         ]
-    },
-    {
-        path: '*',
-        element: <Navigate replace to="/"/>
     }
 ]);
 
