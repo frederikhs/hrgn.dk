@@ -9,3 +9,7 @@ body {
 .link {
     @apply text-blue-500 hover:opacity-75
 }
+
+.header {
+    @apply mb-2 text-2xl font-extrabold leading-none tracking-tight md:text-4xl lg:text-3xl
+}

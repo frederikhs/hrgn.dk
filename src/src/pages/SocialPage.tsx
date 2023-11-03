@@ -4,6 +4,9 @@ import ExternalLink from "../components/ExternalLink";
 export default function SocialPage() {
     return (
         <div>
+            <h1 className="header">
+                My Social links
+            </h1>
             <p>I use the following platforms</p>
             <div className={"flex flex-wrap space-x-2"}>
                 <ExternalLink href={"https://github.com/frederikhs"} title={"GitHub"}/>

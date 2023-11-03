@@ -36,6 +36,9 @@ const Facts: Fact[] = [
 export default function About() {
     return (
         <div>
+            <h1 className="header">
+                Some facts about me
+            </h1>
             {Facts.map((fact, index) => {
                 return (
                     <p key={index}><span className={"font-bold"}>{fact.key}</span>: {fact.value}</p>

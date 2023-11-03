@@ -60,21 +60,26 @@ const Projects: Project[] = [
 
 export default function ProjectsPage() {
     return (
-        <div className={"space-y-4"}>
-            <p>I have picked some projects i want to showcase</p>
-            <ul className="list-none space-y-4">
-                {Projects.map((project, index) => {
-                    return (
-                        <li key={index} className={"space-x-2"}>
-                            <span className={"font-bold"}>{project.name}</span>
-                            <span className={"italic"}>({project.description})</span>
-                            {project.link !== undefined && <ExternalLink href={project.link}/>}
-                            {project.github_link !== undefined && <ExternalLink href={project.github_link} title={"GitHub"}/>}
-                        </li>
-                    )
-                })}
-            </ul>
-            <p>I have many others on my <ExternalLink href={"https://github.com/frederikhs?tab=repositories"} title={"GitHub page"}/></p>
+        <div>
+            <h1 className="header">
+                My personal projects
+            </h1>
+            <div className={"space-y-4"}>
+                <p>I have picked some projects i want to showcase</p>
+                <ul className="list-none space-y-4">
+                    {Projects.map((project, index) => {
+                        return (
+                            <li key={index} className={"space-x-2"}>
+                                <span className={"font-bold"}>{project.name}</span>
+                                <span className={"italic"}>({project.description})</span>
+                                {project.link !== undefined && <ExternalLink href={project.link}/>}
+                                {project.github_link !== undefined && <ExternalLink href={project.github_link} title={"GitHub"}/>}
+                            </li>
+                        )
+                    })}
+                </ul>
+                <p>I have many others on my <ExternalLink href={"https://github.com/frederikhs?tab=repositories"} title={"GitHub page"}/></p>
+            </div>
         </div>
     );
 }

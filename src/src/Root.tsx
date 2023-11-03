@@ -4,7 +4,7 @@ import Navigation from "./components/Navigation";
 
 export default function Root() {
     return (
-        <div className={"space-y-4"}>
+        <div>
             <Navigation/>
             <div className={"px-4"}>
                 <Outlet/>
