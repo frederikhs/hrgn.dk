@@ -17,7 +17,7 @@ const Facts: Fact[] = [
     },
     {
         key: "Currently working at",
-        value: <>Hiper <ExternalLink href={"https://www.hiper.dk"}/></>
+        value: <>Hiper <ExternalLink href={"https://www.hiper.dk/om-hiper"}/></>
     },
     {
         key: "Working as",
