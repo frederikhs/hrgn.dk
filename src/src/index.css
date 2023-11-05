@@ -11,5 +11,5 @@ body {
 }
 
 .header {
-    @apply mb-2 text-2xl font-extrabold leading-none tracking-tight md:text-4xl lg:text-3xl
+    @apply mb-2 text-2xl font-extrabold leading-none tracking-tight sm:text-3xl
 }
