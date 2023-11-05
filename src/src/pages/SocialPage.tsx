@@ -8,7 +8,7 @@ export default function SocialPage() {
                 My Social links
             </h1>
             <p>I use the following platforms</p>
-            <div className={"flex flex-wrap space-x-2"}>
+            <div className={"flex flex-wrap gap-x-2"}>
                 <ExternalLink href={"https://github.com/frederikhs"} title={"GitHub"}/>
                 <ExternalLink href={"https://www.linkedin.com/in/fhoergreen"} title={"LinkedIn"}/>
                 <ExternalLink href={"https://www.facebook.com/frederikhs"} title={"Facebook"}/>
