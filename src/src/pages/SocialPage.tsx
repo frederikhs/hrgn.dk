@@ -5,7 +5,7 @@ export default function SocialPage() {
     return (
         <div>
             <h1 className="header">
-                My Social links
+                My social links
             </h1>
             <p>I use the following platforms</p>
             <div className={"flex flex-wrap gap-x-2"}>
