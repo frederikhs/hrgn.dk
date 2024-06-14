@@ -4,6 +4,6 @@ services:
     build:
       target: development
     volumes:
-      - ./:/src
+      - ./src:/src
     environment:
       REACT_APP_VERSION: "development"
