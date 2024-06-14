@@ -2,7 +2,7 @@ FROM node:alpine as development
 WORKDIR /src
 RUN chown node:node .
 USER node
-CMD npm install && npm run start
+CMD npm install && npm run dev
 
 FROM node:alpine as build
 WORKDIR /src
@@ -13,9 +13,9 @@ COPY src .
 ARG VERSION
 ENV REACT_APP_VERSION=$VERSION
 RUN npm run build
-RUN npm run sitemap
 
 FROM nginx:mainline-alpine as production
+RUN rm /etc/nginx/conf.d/*
 COPY server.conf /etc/nginx/conf.d/nginx.conf
 
-COPY --from=build --chown=nginx:nginx /src/build /usr/share/nginx/html
+COPY --from=build --chown=nginx:nginx /src/dist /usr/share/nginx/html
