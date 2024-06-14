@@ -1,9 +1,11 @@
 services:
   web:
-    image: hrgn-dk:dev
+    image: registry.hrgn.dk/hrgn-dk:dev
     build:
       target: development
     volumes:
       - ./src:/src
+    ports:
+      - "5173:5173"
     environment:
       REACT_APP_VERSION: "development"

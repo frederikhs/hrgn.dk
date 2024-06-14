@@ -5,3 +5,5 @@ services:
       target: production
       args:
         VERSION: ${TAG:-prod}
+    ports:
+      - "80:80"

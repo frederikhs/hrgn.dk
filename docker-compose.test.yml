@@ -1,6 +1,6 @@
 services:
   web:
-    image: hrgn-dk:test
+    image: registry.hrgn.dk/hrgn-dk:test
     build:
       target: build
     environment:
