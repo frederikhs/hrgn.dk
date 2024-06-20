@@ -3,7 +3,10 @@ on: push
 
 jobs:
   lint:
+    timeout-minutes: 10
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
-      - run: make lint
+      - run: |
+          COMPOSE_FILE="docker-compose.yml:docker-compose.test.yml" docker compose run --build --rm web npm run lint
