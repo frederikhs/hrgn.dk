@@ -1,0 +1,15 @@
+name: Build & Lint
+on: push
+
+jobs:
+  build-lint:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@main
+      - uses: actions/setup-node@main
+      - run: npm ci
+        working-directory: astro
+      - run: npm run build
+        working-directory: astro

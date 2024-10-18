@@ -3,5 +3,3 @@ services:
     image: registry.hrgn.dk/hrgn-dk:test
     build:
       target: build
-    environment:
-      REACT_APP_VERSION: "test"

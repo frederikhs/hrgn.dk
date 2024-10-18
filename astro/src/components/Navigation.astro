@@ -1,0 +1,30 @@
+---
+interface Link {
+    to: string
+    title: string
+}
+
+const Links: Link[] = [
+    {to: "/", title: "About"},
+    {to: "/projects", title: "Projects"},
+    {to: "/social", title: "Social"},
+]
+
+const currentPath = Astro.url.pathname;
+---
+
+<nav class="sticky top-0 z-10 bg-neutral-900">
+    <div class="flex flex-wrap items-center justify-start space-x-4 p-4">
+        <a href={"/"} class="text-blue-500">
+            <span>hrgn.dk</span>
+        </a>
+        <span>|</span>
+        {Links.map((link) => {
+            return (
+                <a href={link.to} class={currentPath === link.to ? "underline" : ""}>
+                    <span class="hover:opacity-75">{link.title}</span>
+                </a>
+            )
+        })}
+    </div>
+</nav>

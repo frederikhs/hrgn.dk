@@ -1,9 +1,8 @@
-import React from 'react';
-import ExternalLink from "../components/ExternalLink";
-
+---
+import Layout from "../layouts/Layout.astro";
 interface Fact {
     key: string
-    value: React.ReactNode
+    value: any
 }
 
 const Facts: Fact[] = [
@@ -17,7 +16,7 @@ const Facts: Fact[] = [
     },
     {
         key: "Currently working at",
-        value: <>Hiper <ExternalLink href={"https://www.hiper.dk/om-hiper"}/></>
+        value: "Hiper"
     },
     {
         key: "Working as",
@@ -32,18 +31,19 @@ const Facts: Fact[] = [
         value: "AWS, Kubernetes, Docker, Linux, Golang, PHP"
     }
 ]
+---
 
-export default function About() {
-    return (
-        <div>
-            <h1 className="header">
-                Some facts about me
-            </h1>
-            {Facts.map((fact, index) => {
+<Layout title="About">
+    <div>
+        <h1 class="header">
+            Some facts about me
+        </h1>
+        <div class={"space-y-4"}>
+            {Facts.map((fact) => {
                 return (
-                    <p key={index}><span className={"font-bold"}>{fact.key}</span>: {fact.value}</p>
+                    <p><span class={"font-bold"}>{fact.key}</span>: {fact.value}</p>
                 )
             })}
         </div>
-    );
-}
+    </div>
+</Layout>

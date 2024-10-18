@@ -1,0 +1,46 @@
+---
+import Layout from "../layouts/Layout.astro";
+interface Link {
+    link: string
+    title: string
+}
+
+const Links: Link[] = [
+    {
+        link: "https://github.com/frederikhs",
+        title: "GitHub",
+    },
+    {
+        link: "https://www.linkedin.com/in/fhoergreen",
+        title: "LinkedIn",
+    },
+    {
+        link: "https://www.facebook.com/frederikhs",
+        title: "Facebook",
+    },
+    {
+        link: "https://www.strava.com/athletes/60630344",
+        title: "Strava",
+    },
+    {
+        link: "https://www.instagram.com/hoergreen",
+        title: "Instagram",
+    },
+]
+---
+
+<Layout title="Social">
+    <div>
+        <h1 class="header">
+            My social links
+        </h1>
+        <p>I use the following platforms</p>
+        <div class={"flex flex-wrap gap-x-2"}>
+            {Links.map((link) => {
+                return (
+                    <a target={"_blank"} rel="noreferrer" class={"link"} href={link.link}>[{link.title}]</a>
+                )
+            })}
+        </div>
+    </div>
+</Layout>

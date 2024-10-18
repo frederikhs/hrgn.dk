@@ -6,10 +6,10 @@ CMD npm install && npm run dev
 
 FROM node:alpine AS build
 WORKDIR /src
-COPY src/package*.json .
+COPY astro/package*.json .
 RUN npm install
 
-COPY src .
+COPY astro .
 ARG VERSION
 ENV REACT_APP_VERSION=$VERSION
 RUN npm run build
