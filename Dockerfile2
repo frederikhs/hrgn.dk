@@ -1,0 +1,19 @@
+FROM node:alpine AS development
+WORKDIR /src
+RUN chown node:node .
+USER node
+CMD sleep infinity
+
+FROM node:alpine AS build
+WORKDIR /src
+COPY next/package*.json .
+RUN npm install
+
+COPY next .
+RUN npm run build
+
+FROM nginx:mainline-alpine AS production
+RUN rm /etc/nginx/conf.d/*
+COPY server.conf /etc/nginx/conf.d/nginx.conf
+
+COPY --from=build --chown=nginx:nginx /src/out /usr/share/nginx/html

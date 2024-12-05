@@ -4,8 +4,8 @@ services:
     build:
       target: development
     volumes:
-      - ./astro:/src
+      - ./next:/src
     ports:
-      - "5173:5173"
+      - "3000:3000"
     environment:
       REACT_APP_VERSION: "development"
