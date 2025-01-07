@@ -3,9 +3,19 @@ import '../base.css';
 import Navigation from "../components/Navigation.astro";
 interface Props {
     title: string;
+    description?: string;
+    path: string;
 }
 
-const {title} = Astro.props;
+let {title, description, path} = Astro.props;
+
+title = "hrgn - " + title;
+
+if (description === undefined) {
+    description = "Personal website of Frederik Hørgreen Sørensen with links to projects and socials"
+}
+
+const url = "https://www.hrgn.dk" + path
 ---
 
 <!doctype html>
@@ -13,20 +23,22 @@ const {title} = Astro.props;
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="description" content="Personal website of Frederik Hørgreen Sørensen with links to projects and socials"/>
+    <meta name="description" content={description}/>
     <meta name="keywords" content="hrgn, Frederik Hørgreen Sørensen, portfolio, enterprise architect, hiper">
     <meta name="author" content="Frederik Hørgreen Sørensen">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="360">
     <meta name="robots" content="all">
-    <meta property="og:title" content="Personal website of Frederik Hørgreen Sørensen"/>
-    <meta property="og:url" content="https://www.hrgn.dk"/>
+    <meta property="og:title" content={title}/>
+    <meta property="og:description" content={description}/>
+    <meta property="og:url" content={url}/>
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="hrgn">
     <meta property="og:locale" content="en_US">
-    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="canonical" href={url}/>
+    <link rel="sitemap" href="/sitemap-index.xml"/>
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <title>hrgn - {title}</title>
+    <title>{title}</title>
 </head>
 <body>
 <div>
