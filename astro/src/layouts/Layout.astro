@@ -10,7 +10,7 @@ interface Props {
 
 let {title, description, path} = Astro.props;
 
-title = "hrgn - " + title;
+title = title + " - hrgn";
 
 if (description === undefined) {
     description = "Personal website of Frederik Hørgreen Sørensen with links to projects and socials"
@@ -42,9 +42,9 @@ const url = "https://www.hrgn.dk" + path
     <title>{title}</title>
 </head>
 <body>
-<div>
+<div class="space-y-4 max-w-2xl mx-auto">
     <Navigation/>
-    <div class="px-4">
+    <div class="px-4 mb-4">
         <slot/>
     </div>
 </div>

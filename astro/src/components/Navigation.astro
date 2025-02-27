@@ -13,17 +13,21 @@ const Links: Link[] = [
 const currentPath = Astro.url.pathname;
 ---
 
-<nav class="sticky top-0 z-10 bg-neutral-900">
-    <div class="flex flex-wrap items-center justify-start space-x-4 p-4">
-        <a href={"/"} class="text-blue-500">
-            <span>hrgn.dk</span>
-        </a>
-        <span>|</span>
-        {Links.map((link) => {
+<nav class="sticky top-0 z-10 bg-white dark:bg-neutral-900 border-b-2 mx-auto p-4 pt-0 drop-shadow-md md:drop-shadow-none dark:drop-shadow-none">
+    <div class="flex justify-start py-2">
+        <h1 class="!mb-0">Frederik Hørgreen</h1>
+    </div>
+    <div class="flex flex-wrap items-center justify-start space-x-4">
+        {Links.map((link, index) => {
             return (
-                <a href={link.to} class={currentPath === link.to ? "underline" : ""}>
-                    <span class="hover:opacity-75">{link.title}</span>
-                </a>
+                <>
+                    <a href={link.to} class={`link ${currentPath === link.to ? "underline" : ""}`}>
+                        {link.title}
+                    </a>
+                    {index < Links.length - 1 && (
+                        <span>|</span>
+                    )}
+                </>
             )
         })}
     </div>

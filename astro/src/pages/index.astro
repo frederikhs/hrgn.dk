@@ -7,10 +7,6 @@ interface Fact {
 
 const Facts: Fact[] = [
     {
-        key: "Name",
-        value: "Frederik Hørgreen Sørensen"
-    },
-    {
         key: "Email",
         value: "frederik@hoergreen.dk"
     },
@@ -24,21 +20,21 @@ const Facts: Fact[] = [
     },
     {
         key: "Responsible for",
-        value: "the tech stack and cloud infrastructure for Hiper's business support systems while also being a resource in the development scrum team"
+        value: "the tech stack and cloud infrastructure for Hiper's business support systems"
     },
     {
         key: "Working with",
-        value: "AWS, Kubernetes, Docker, Linux, Golang, PHP"
+        value: "AWS, Kubernetes, Docker, Linux, Golang, PHP, React"
     }
 ]
 ---
 
-<Layout title="About" path="">
+<Layout title="about" path="">
     <div>
-        <h1 class="header">
-            Some facts about me
+        <h1>
+            About me
         </h1>
-        <div class={"space-y-4"}>
+        <div class={"space-y-2"}>
             {Facts.map((fact) => {
                 return (
                     <p><span class={"font-bold"}>{fact.key}</span>: {fact.value}</p>
