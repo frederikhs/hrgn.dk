@@ -4,7 +4,7 @@ on: push
 jobs:
   build-lint:
     timeout-minutes: 10
-    runs-on: self-hosted
+    runs-on: arc-runner-set
 
     steps:
       - uses: actions/checkout@main
