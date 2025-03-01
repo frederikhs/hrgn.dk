@@ -17,7 +17,7 @@ jobs:
 
       - name: Build and push to Docker Hub
         run: |
-          docker build --pull \
-            --tag frederikhs/hrgn.dk:${{ github.sha }} \
+          docker build --pull --push \
+            --tag frederikhs/hrgn.dk:$(git rev-parse --short HEAD) \
             --tag frederikhs/hrgn.dk:latest \
           .
