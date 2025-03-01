@@ -1,0 +1,23 @@
+name: ci
+on: push
+
+jobs:
+  build-and-push:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@main
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@master
+        with:
+          username: frederikhs
+          password: ${{ secrets.DOCKER_PAT }}
+
+      - name: Build and push to Docker Hub
+        run: |
+          docker build --pull \
+            --tag frederikhs/hrgn.dk:${{ github.sha }} \
+            --tag frederikhs/hrgn.dk:latest \
+          .
