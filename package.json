@@ -1,0 +1,18 @@
+{
+    "name": "hasp",
+    "main": "gulpfile.js",
+    "scripts": {
+        "tailwind": "npx @tailwindcss/cli -i ./src/css/tailwind.css -o ./build/tailwind.css --minify",
+        "build": "npm run tailwind && gulp"
+    },
+    "dependencies": {
+        "autoprefixer": "^10.4.21",
+        "gulp": "^5.0.1",
+        "gulp-rev": "^11.0.0",
+        "tailwindcss": "^4.1.11",
+        "@tailwindcss/cli": "^4.1.11",
+        "gulp-clean": "^0.4.0",
+        "gulp-htmlmin": "^5.0.1",
+        "gulp-rev-replace": "^0.4.4"
+    }
+}

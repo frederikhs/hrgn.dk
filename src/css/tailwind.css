@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+html {
+  @apply font-mono
+}
+
+a {
+  @apply hover:underline hover:text-amber-400
+}

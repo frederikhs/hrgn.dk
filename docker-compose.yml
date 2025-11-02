@@ -1,5 +1,0 @@
-services:
-  web:
-    build:
-      context: .
-    stop_grace_period: 1s

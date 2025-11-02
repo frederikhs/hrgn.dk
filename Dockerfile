@@ -1,21 +1,33 @@
-FROM node:alpine AS development
-WORKDIR /src
-RUN chown node:node .
-USER node
-CMD npm install && npm run dev
-
 FROM node:alpine AS build
-WORKDIR /src
-COPY astro/package*.json .
-RUN npm install
-
-COPY astro .
-ARG VERSION
-ENV REACT_APP_VERSION=$VERSION
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm ci
+COPY src src
+COPY gulpfile.mjs .
 RUN npm run build
 
 FROM nginx:mainline-alpine AS production
 RUN rm /etc/nginx/conf.d/*
-COPY server.conf /etc/nginx/conf.d/nginx.conf
+COPY <<EOF /etc/nginx/conf.d/nginx.conf
+server {
+    server_tokens off;
+    listen 80 default_server;
+    server_name _;
 
-COPY --from=build --chown=nginx:nginx /src/dist /usr/share/nginx/html
+    root    /usr/share/nginx/html;
+    include /etc/nginx/mime.types;
+
+    location ~* \.css\$ {
+        expires 1y;
+        add_header Pragma public;
+        add_header Cache-Control "public";
+        etag off;
+    }
+
+    location / {
+        try_files \$uri \$uri/index.html =404;
+    }
+}
+EOF
+
+COPY --from=build --chown=nginx:nginx /app/dist /usr/share/nginx/html

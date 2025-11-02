@@ -1,9 +1,12 @@
-dev:
-	docker compose up -d --build
-	docker compose logs web -f
+preview: build
+	docker run -p 5173:80 hrgn-dk-preview
 
-prod:
-	docker compose --env-file .env.prod up -d --build
+build:
+	docker build -t hrgn-dk-preview .
 
-lint:
-	COMPOSE_FILE="docker-compose.yml:docker-compose.test.yml" docker compose run --build --rm web npm run lint
+clean:
+	rm -rf \
+		node_modules \
+		build \
+		dist \
+		tmp

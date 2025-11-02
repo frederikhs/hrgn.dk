@@ -1,5 +1,0 @@
-services:
-  web:
-    image: registry.hrgn.dk/hrgn-dk:test
-    build:
-      target: build
