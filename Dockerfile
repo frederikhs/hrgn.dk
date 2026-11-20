@@ -1,4 +1,4 @@
-FROM node:alpine AS build
+FROM node:26-alpine AS build
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
@@ -16,6 +16,7 @@ server {
 
     root    /usr/share/nginx/html;
     include /etc/nginx/mime.types;
+    add_header Cache-Control "no-cache";
 
     location ~* \.css\$ {
         expires 1y;
