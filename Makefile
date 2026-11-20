@@ -10,3 +10,5 @@ clean:
 		build \
 		dist \
 		tmp
+
+.PHONY: build

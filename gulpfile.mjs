@@ -2,7 +2,7 @@ import gulp       from 'gulp';
 import rev        from 'gulp-rev';
 import revReplace from 'gulp-rev-replace';
 import clean      from 'gulp-clean';
-import htmlmin    from 'gulp-htmlmin';
+import htmlmin    from 'gulp-html-minifier-terser';
 
 function cleanUp() {
     return gulp.src('dist', {allowEmpty: true})
